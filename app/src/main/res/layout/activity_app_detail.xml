@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background_gradient"
+    android:padding="48dp">
+    
+    <!-- 应用图标 -->
+    <ImageView
+        android:id="@+id/iv_app_icon"
+        android:layout_width="160dp"
+        android:layout_height="160dp"
+        android:layout_marginStart="80dp"
+        android:layout_marginTop="80dp"
+        android:scaleType="centerCrop"
+        android:background="@drawable/app_icon_bg"
+        android:clipToOutline="true"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:src="@drawable/ic_app_default" />
+    
+    <!-- 应用名称 -->
+    <TextView
+        android:id="@+id/tv_app_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="48dp"
+        android:layout_marginTop="20dp"
+        android:textColor="@color/text_primary"
+        android:textSize="36sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@id/iv_app_icon"
+        app:layout_constraintTop_toTopOf="@id/iv_app_icon"
+        tools:text="应用名称" />
+    
+    <!-- 开发者 -->
+    <TextView
+        android:id="@+id/tv_developer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:textColor="@color/text_secondary"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="@id/tv_app_name"
+        app:layout_constraintTop_toBottomOf="@id/tv_app_name"
+        tools:text="开发者" />
+    
+    <!-- 版本信息 -->
+    <TextView
+        android:id="@+id/tv_version"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:textColor="@color/text_secondary"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="@id/tv_developer"
+        app:layout_constraintTop_toBottomOf="@id/tv_developer"
+        tools:text="版本 1.0.0" />
+    
+    <!-- 文件大小 -->
+    <TextView
+        android:id="@+id/tv_size"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:textColor="@color/text_secondary"
+        android:textSize="18sp"
+        app:layout_constraintStart_toEndOf="@id/tv_version"
+        app:layout_constraintTop_toTopOf="@id/tv_version"
+        tools:text="大小 10.5 MB" />
+    
+    <!-- 下载量 -->
+    <TextView
+        android:id="@+id/tv_downloads"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:textColor="@color/text_secondary"
+        android:textSize="18sp"
+        app:layout_constraintStart_toEndOf="@id/tv_size"
+        app:layout_constraintTop_toTopOf="@id/tv_size"
+        tools:text="下载量 1.2K" />
+    
+    <!-- 分类 -->
+    <TextView
+        android:id="@+id/tv_category"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:textColor="@color/text_secondary"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="@id/tv_version"
+        app:layout_constraintTop_toBottomOf="@id/tv_version"
+        tools:text="分类 工具" />
+    
+    <!-- 安装按钮 -->
+    <Button
+        android:id="@+id/btn_install"
+        android:layout_width="200dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="36dp"
+        android:text="@string/install"
+        android:textSize="20sp"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:background="@drawable/btn_install_bg"
+        app:layout_constraintStart_toStartOf="@id/tv_version"
+        app:layout_constraintTop_toBottomOf="@id/tv_category" />
+    
+    <!-- 打开按钮 -->
+    <Button
+        android:id="@+id/btn_open"
+        android:layout_width="200dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="24dp"
+        android:text="@string/open"
+        android:textSize="20sp"
+        android:visibility="gone"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:background="@drawable/btn_open_bg"
+        app:layout_constraintStart_toEndOf="@id/btn_install"
+        app:layout_constraintTop_toTopOf="@id/btn_install"
+        tools:visibility="visible" />
+    
+    <!-- 卸载按钮 -->
+    <Button
+        android:id="@+id/btn_uninstall"
+        android:layout_width="200dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="24dp"
+        android:text="@string/uninstall"
+        android:textSize="20sp"
+        android:visibility="gone"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:background="@drawable/btn_uninstall_bg"
+        app:layout_constraintStart_toEndOf="@id/btn_open"
+        app:layout_constraintTop_toTopOf="@id/btn_install"
+        tools:visibility="visible" />
+    
+    <!-- 分割线 -->
+    <View
+        android:id="@+id/divider"
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:layout_marginTop="48dp"
+        android:background="@color/text_disabled"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@id/iv_app_icon"
+        app:layout_constraintTop_toBottomOf="@id/iv_app_icon" />
+    
+    <!-- 应用描述标题 -->
+    <TextView
+        android:id="@+id/tv_desc_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="应用描述"
+        android:textColor="@color/text_primary"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@id/iv_app_icon"
+        app:layout_constraintTop_toBottomOf="@id/divider" />
+    
+    <!-- 应用描述内容 -->
+    <TextView
+        android:id="@+id/tv_description"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:lineSpacingMultiplier="1.5"
+        android:textColor="@color/text_secondary"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@id/iv_app_icon"
+        app:layout_constraintTop_toBottomOf="@id/tv_desc_title"
+        tools:text="这是一款优秀的应用..." />
+</androidx.constraintlayout.widget.ConstraintLayout>

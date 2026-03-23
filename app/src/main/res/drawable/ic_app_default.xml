@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="100dp"
+    android:height="100dp"
+    android:viewportWidth="100"
+    android:viewportHeight="100">
+    
+    <!-- 背景圆角矩形 -->
+    <path
+        android:fillColor="#37474F"
+        android:pathData="M15,0 L85,0 Q100,0 100,15 L100,85 Q100,100 85,100 L15,100 Q0,100 0,85 L0,15 Q0,0 15,0 Z" />
+    
+    <!-- 应用图标 -->
+    <path
+        android:fillColor="#90A4AE"
+        android:pathData="M50,25 L65,40 L50,55 L35,40 Z" />
+    
+    <path
+        android:fillColor="#90A4AE"
+        android:pathData="M50,60 L65,75 L35,75 Z" />
+</vector>

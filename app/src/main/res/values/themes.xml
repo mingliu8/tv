@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- TV 应用市场主题 -->
+    <style name="Theme.TVAppStore" parent="Theme.Leanback.Browse">
+        <item name="android:colorPrimary">@color/primary</item>
+        <item name="android:colorPrimaryDark">@color/primary_dark</item>
+        <item name="android:colorAccent">@color/accent</item>
+        <item name="android:windowBackground">@drawable/background_gradient</item>
+        <item name="android:statusBarColor">@color/background</item>
+        
+        <!-- 标题样式 -->
+        <item name="browseTitleTextStyle">@style/TitleTextStyle</item>
+        
+        <!-- 卡片样式 -->
+        <item name="browseTitleViewStyle">@style/BrowseTitleViewStyle</item>
+        
+        <!-- 行样式 -->
+        <item name="rowHorizontalGridStyle">@style/RowHorizontalGridStyle</item>
+        
+        <!-- 标题图标颜色 -->
+        <item name="defaultBrandColor">@color/primary</item>
+    </style>
+    
+    <!-- 标题文字样式 -->
+    <style name="TitleTextStyle" parent="Widget.Leanback.Title.Text">
+        <item name="android:textSize">28sp</item>
+        <item name="android:textColor">@color/text_primary</item>
+        <item name="android:fontFamily">sans-serif-medium</item>
+    </style>
+    
+    <!-- 浏览标题视图样式 -->
+    <style name="BrowseTitleViewStyle" parent="Widget.Leanback.TitleView">
+        <item name="android:background">@color/background</item>
+    </style>
+    
+    <!-- 行网格样式 -->
+    <style name="RowHorizontalGridStyle" parent="Widget.Leanback.Row.HorizontalGridView">
+        <item name="android:paddingStart">56dp</item>
+        <item name="android:paddingEnd">56dp</item>
+    </style>
+    
+    <!-- 详情页主题 -->
+    <style name="Theme.TVAppStore.Detail" parent="Theme.Leanback.Details">
+        <item name="android:colorPrimary">@color/primary</item>
+        <item name="android:colorPrimaryDark">@color/primary_dark</item>
+        <item name="android:colorAccent">@color/accent</item>
+        <item name="android:windowBackground">@drawable/background_gradient</item>
+    </style>
+    
+    <!-- 设置页主题 -->
+    <style name="Theme.TVAppStore.Settings" parent="Theme.Leanback.GuidedStep">
+        <item name="android:colorPrimary">@color/primary</item>
+        <item name="android:colorPrimaryDark">@color/primary_dark</item>
+        <item name="android:colorAccent">@color/accent</item>
+    </style>
+</resources>

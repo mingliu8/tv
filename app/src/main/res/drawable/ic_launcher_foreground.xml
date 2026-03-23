@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+    
+    <!-- TV 图标 -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M54,54m-26,0a26,26 0,1 1,52 0a26,26 0,1 1,-52 0" />
+    
+    <!-- 屏幕内部 -->
+    <path
+        android:fillColor="#2196F3"
+        android:pathData="M38,46 L70,46 L70,62 L38,62 Z" />
+    
+    <!-- 底座 -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M48,64 L60,64 L60,66 L48,66 Z" />
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M46,66 L62,66 L62,68 L46,68 Z" />
+</vector>
