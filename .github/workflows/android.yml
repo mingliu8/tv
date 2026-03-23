@@ -12,35 +12,39 @@ jobs:
 
     steps:
     - name: Checkout code
-      uses: actions/checkout@v4
-
+      uses: actions/checkout@v5  # 升级到v5，适配Node.js 24
+      
     - name: Set up JDK 11
-      uses: actions/setup-java@v4
+      uses: actions/setup-java@v5  # 升级到v5，适配Node.js 24
       with:
         java-version: '11'
         distribution: 'temurin'
-        cache: gradle
+        cache: 'gradle'
 
-    # 🔧 关键优化：配置阿里云 Maven 镜像，解决国内网络超时
+    # 修复国内网络依赖下载超时
     - name: Configure Maven Mirror
       run: |
-        echo "org.gradle.jvmargs=-Xmx2048m -Dfile.encoding=UTF-8" >> gradle.properties
+        # 优化Gradle参数
+        echo "org.gradle.jvmargs=-Xmx4096m -Dfile.encoding=UTF-8" >> gradle.properties
         echo "android.useAndroidX=true" >> gradle.properties
         echo "kotlin.code.style=official" >> gradle.properties
         echo "android.nonTransitiveRClass=true" >> gradle.properties
-        # 替换项目仓库为阿里云镜像
-        sed -i 's/google()/maven { url "https://maven.aliyun.com/repository/google" }\n        google()/g' build.gradle.kts
-        sed -i 's/mavenCentral()/maven { url "https://maven.aliyun.com/repository/central" }\n        mavenCentral()/g' build.gradle.kts
-        sed -i 's/gradlePluginPortal()/maven { url "https://maven.aliyun.com/repository/gradle-plugin" }\n        gradlePluginPortal()/g' settings.gradle.kts
+        
+        # 替换项目仓库为阿里云镜像（适配KTS格式）
+        if [ -f "build.gradle.kts" ]; then
+          sed -i 's/google()/maven { url "https://maven.aliyun.com/repository/google" }\n        google()/g' build.gradle.kts
+          sed -i 's/mavenCentral()/maven { url "https://maven.aliyun.com/repository/central" }\n        mavenCentral()/g' build.gradle.kts
+        fi
+        if [ -f "settings.gradle.kts" ]; then
+          sed -i 's/gradlePluginPortal()/maven { url "https://maven.aliyun.com/repository/gradle-plugin" }\n        gradlePluginPortal()/g' settings.gradle.kts
+        fi
 
     - name: Grant execute permission for gradlew
       run: chmod +x gradlew
 
-    # ⚡ 优化构建命令：仅打包 APK，跳过测试，加速构建
     - name: Build with Gradle
       run: ./gradlew assembleDebug -x test -x lint
 
-    # 📦 归档构建产物，可在 Actions 页面下载
     - name: Upload APK
       uses: actions/upload-artifact@v4
       with:
